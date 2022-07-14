@@ -1,9 +1,10 @@
 import { Router } from "express";
 class RouterClass {
   protected route: string;
-  protected router: Router = Router();
+  protected router: Router;
   constructor(route: string) {
     this.route = route;
+    this.router = Router()
   }
   public getRoute():string{
     return this.route

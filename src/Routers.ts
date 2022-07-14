@@ -4,10 +4,10 @@ import RouterClass from "./RouterClass/RouterClass";
 class Routers {
   private app: Application;
   private routers:RouterClass[] = new Array<RouterClass>();
-  private userRouter:UserRouter = new UserRouter('users')
+  //private userRouter:UserRouter = new UserRouter('users')
   constructor(app: Application) {
     this.app = app;
-    this.routers.push(this.userRouter)
+    this.routers.push(new UserRouter('users'))
   }
   public registerRouter(route:string,router:Router){
     
