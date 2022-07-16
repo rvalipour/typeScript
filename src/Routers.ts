@@ -1,15 +1,17 @@
 import { Application, Request, Response, Router } from "express";
-import UserRouter from './components/users/UserRouter'
-import RouterClass from "./RouterClass/RouterClass";
+import UserRouter from './modules/users/UserRouter'
+import RouterClass from "./BaseClassess/RouterClass";
 class Routers {
   private app: Application;
   private routers:RouterClass[] = new Array<RouterClass>();
+ 
   //private userRouter:UserRouter = new UserRouter('users')
   constructor(app: Application) {
     this.app = app;
-    this.routers.push(new UserRouter('users'))
+    //this.routers.push(new UserRouter('users'))
   }
-  public registerRouter(route:string,router:Router){
+  public registerRouter(router:RouterClass){
+    this.routers.push(router)
     
 
   }

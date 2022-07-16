@@ -1,6 +1,6 @@
-import { Router } from "express";
+
 import UserController from "./UserController";
-import RouterClass from "../../RouterClass/RouterClass";
+import RouterClass from "../../BaseClassess/RouterClass";
 class UserRouter extends RouterClass {
   private userController: UserController = new UserController();
   //private userRouter: Router = Router();

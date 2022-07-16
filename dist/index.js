@@ -1,18 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("./express");
-/*let user:string[]=['reza','ali']
-let data:Array<number> =[1,2,3]
-
-enum TASK_STATUS {
-    OPENED,
-    COMOLETED,
-    DELETED
-
-}
-let taskType:TASK_STATUS;
-taskType = TASK_STATUS.COMOLETED
-console.log(user,data,taskType )
-console.log(sum(1,1,1,5000) )*/
-const app = new express_1.default(5000);
+const MainApp_1 = require("./MainApp");
+const fakeUser_1 = require("./fakeData/fakeUser");
+const LoadEnv_1 = require("./init/LoadEnv");
+require("reflect-metadata");
+(0, fakeUser_1.createUser)();
+console.log(LoadEnv_1.default.DATABASE_USER);
+const app = new MainApp_1.default(Number(LoadEnv_1.default.APP_PORT));
 app.run();
