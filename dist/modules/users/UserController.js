@@ -1,11 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const DataBase_1 = require("../../DataBase/DataBase");
+const userTable_1 = require("../../DataBase/Sequelize/userTable");
 class UserController {
     constructor() { }
-    index(req, res) {
-        DataBase_1.db.init();
-        res.send({ allUsers: [] });
+    async index(req, res) {
+        try {
+            const users = await userTable_1.default.findAll();
+            console.log(users);
+            res.send({ allUsers: users });
+        }
+        catch (err) {
+            if (err instanceof Error)
+                res.send({ error: err.message });
+        }
     }
 }
 exports.default = UserController;

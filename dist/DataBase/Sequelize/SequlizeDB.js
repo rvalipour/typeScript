@@ -19,14 +19,19 @@ class DataBase {
         });
     }
     async init() {
-        try {
-            await this.connection.authenticate();
-        }
-        catch (error) {
-            if (error instanceof Error)
-                console.log(error.message);
-            else
-                console.log('unknown error');
+        let isConnected = false;
+        while (!isConnected) {
+            try {
+                await this.connection.authenticate();
+                isConnected = true;
+            }
+            catch (error) {
+                if (error instanceof Error)
+                    console.log(error.message);
+                else
+                    console.log('unknown error');
+            }
+            await new Promise(r => setTimeout(r, 2000));
         }
     }
     getConnection() {

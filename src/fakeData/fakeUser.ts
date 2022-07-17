@@ -21,6 +21,7 @@ export const  createUser = async()=>{
         users.push(user)
         //console.log(user)
     }
+    await db.init()
     await User.sync()
     await User.bulkCreate(users)
     console.table(users)

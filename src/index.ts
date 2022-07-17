@@ -5,7 +5,7 @@ import env from './init/LoadEnv'
 import "reflect-metadata"
 
 
-createUser()
+//createUser()
 console.log(env.DATABASE_USER)
 const app = new mainApp(Number(env.APP_PORT))
 app.run()
